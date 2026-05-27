@@ -1874,7 +1874,7 @@ _0x3a45.focus();
       if(!eml){errEl.textContent='Please enter your email address.';errEl.style.display='block';return;}
       forgotBtn.classList.add('loading'); forgotBtn.disabled=true;
       try{
-        var res=await fetch(API+'/auth/forgot-password',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:eml})});
+        var res=await fetch(API+'/forgot-password',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:eml})});
         var data=await res.json();
         if(!res.ok) throw new Error(data.error||'Request failed.');
         okEl.textContent='checkmark '+data.message;
