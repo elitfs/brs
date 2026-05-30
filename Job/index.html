@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Job Portal — Live Job Intelligence</title>
+<title>JobPortal — Live Job Intelligence</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Syne:wght@400;600;700;800&family=Figtree:wght@300;400;500;600&display=swap" rel="stylesheet"/>
 <style>
@@ -37,16 +37,16 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .analytics-btn{display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:var(--r);border:1px solid var(--border);background:transparent;color:var(--dim);font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;transition:all .15s}
 .analytics-btn:hover{border-color:var(--accent);color:var(--accent)}
 
-/* HERO */
+/* HERO AREA */
 .hero{padding:64px 40px 48px;position:relative;overflow:hidden}
 .hero::after{content:'';position:absolute;top:-60px;right:-80px;width:500px;height:500px;background:radial-gradient(ellipse,rgba(88,196,140,.07) 0%,transparent 70%);pointer-events:none}
 .hero-eyebrow{font-family:'Syne',sans-serif;font-size:10px;letter-spacing:.25em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:12px;display:flex;align-items:center;gap:8px}
 .hero-eyebrow::before{content:'';display:inline-block;width:20px;height:1px;background:var(--accent)}
-.hero-headline{font-family:'Cormorant Garamond',serif;font-size:clamp(38px,5vw,64px);font-weight:700;line-height:1.0;letter-spacing:-.02em;margin-bottom:16px}
+.hero-headline{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(38px,5vw,64px);font-weight:700;line-height:1.0;letter-spacing:-.02em;margin-bottom:16px}
 .hero-headline em{font-style:italic;color:var(--accent)}
 .hero-sub{font-size:14px;color:var(--dim);max-width:500px;line-height:1.7}
 
-/* SEARCH ENGINE WRAPPER */
+/* SEARCH SYSTEM PANELS */
 .search-panel{padding:0 40px;position:relative;z-index:10}
 .search-box{background:var(--bg2);border:1px solid var(--border);border-radius:6px;padding:20px 24px;display:flex;flex-direction:column;gap:14px;transition:border-color .2s}
 .search-box:focus-within{border-color:rgba(88,196,140,.4)}
@@ -62,10 +62,9 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .search-submit:hover{background:var(--accent2)}
 .typing-bar{height:2px;background:var(--border);border-radius:2px;overflow:hidden;opacity:0;transition:opacity .2s}
 .typing-bar.active{opacity:1}
-.typing-progress{height:100%;width:0%;background:linear-gradient(90deg,var(--accent),var(--gold));border-radius:2px;animation:trackLoad 2s ease infinite}
-@keyframes trackLoad{0%{width:0%}50%{width:70%}100%{width:100%}}
+.typing-progress{height:100%;width:0%;background:linear-gradient(90deg,var(--accent),var(--gold));border-radius:2px;animation:indetProgress 1.6s ease infinite}
+@keyframes indetProgress{0%{width:0%;margin-left:0%}50%{width:50%;margin-left:25%}100%{width:100%;margin-left:100%}}
 
-/* SEARCH CHIPS & SELECTIONS */
 .type-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
 .type-label{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);font-weight:600;white-space:nowrap;padding-right:4px}
 .type-btn{display:inline-flex;align-items:center;gap:6px;padding:5px 13px;border-radius:2px;border:1px solid var(--border);background:transparent;color:var(--dim);font-size:11.5px;font-weight:500;cursor:pointer;transition:all .15s;white-space:nowrap}
@@ -81,20 +80,21 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .type-btn[data-type="Hybrid"].active{background:rgba(108,180,228,.12);color:var(--blue);border-color:rgba(108,180,228,.4)}
 .type-btn[data-type="Remote"].active{background:rgba(195,131,219,.12);color:var(--purple);border-color:rgba(195,131,219,.4)}
 .type-btn[data-type="Any"].active{background:rgba(255,255,255,.06);color:var(--text);border-color:rgba(255,255,255,.18)}
-.cats-scroll{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-top:2px}
+
+.cats-scroll{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
 .cats-label{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);font-weight:600;white-space:nowrap;padding-right:4px}
 .cat-pill{display:inline-flex;align-items:center;gap:5px;padding:5px 12px;border-radius:20px;border:1px solid var(--border);background:transparent;color:var(--dim);font-size:11.5px;font-weight:500;cursor:pointer;transition:all .15s}
 .cat-pill:hover{border-color:var(--accent);color:var(--accent)}
 .cat-pill.active{background:rgba(88,196,140,.12);border-color:var(--accent);color:var(--accent);font-weight:600}
 
-/* SYSTEM STATUS CONSOLE */
+/* SYSTEM STATUS CHIPS */
 .status-ticker{margin:24px 40px 0;padding:12px 18px;background:rgba(88,196,140,.05);border:1px solid rgba(88,196,140,.15);border-radius:var(--r);display:none;align-items:center;gap:12px;font-size:12px;color:var(--accent)}
 .status-ticker.visible{display:flex}
 .status-ticker.err{background:rgba(224,108,117,.05);border-color:rgba(224,108,117,.2);color:var(--red)}
 .spin{width:14px;height:14px;border:2px solid rgba(88,196,140,.2);border-top-color:var(--accent);border-radius:50%;animation:spin .7s linear infinite;flex-shrink:0}
 @keyframes spin{to{transform:rotate(360deg)}}
 
-/* SEARCH GRID HEADER */
+/* DATA META HEADER */
 .results-header{padding:28px 40px 16px;display:none;align-items:flex-end;justify-content:space-between;border-bottom:1px solid var(--border)}
 .results-header.visible{display:flex}
 .res-count{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:700;letter-spacing:-.02em;line-height:1}
@@ -103,7 +103,7 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .res-ts{font-size:10px;color:var(--faint);letter-spacing:.04em;text-align:right}
 .res-ts strong{display:block;color:var(--dim);font-size:12px;font-weight:500}
 
-/* JOB LISTINGS TILES */
+/* SEARCH DISPLAY GRID MATRIX */
 .jobs-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:1px;background:var(--border);border-top:1px solid var(--border)}
 .job-card{background:var(--bg);padding:22px 24px;cursor:pointer;transition:background .15s;position:relative;animation:fadeSlide .35s ease both;overflow:hidden}
 @keyframes fadeSlide{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
@@ -129,18 +129,17 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .apply-link{display:inline-flex;align-items:center;gap:6px;padding:7px 16px;background:var(--accent);color:#07080C;font-family:'Syne',sans-serif;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;border-radius:2px;transition:all .15s}
 .apply-link:hover{background:var(--accent2);transform:translateY(-1px)}
 
-/* EMPTY STATE CONSOLE */
+/* NO RESULTS WRAPPER */
 .empty-state{padding:100px 40px;text-align:center;border-top:1px solid var(--border)}
 .empty-glyph{font-family:'Cormorant Garamond',serif;font-size:80px;color:rgba(88,196,140,.08);line-height:1;margin-bottom:20px}
 .empty-title{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:600;color:rgba(228,226,220,.25);margin-bottom:10px}
 .empty-body{font-size:13px;color:rgba(228,226,220,.18);max-width:380px;margin:0 auto}
 
-/* SYSTEM FOOTER */
+/* PAGE FOOTER STYLES */
 .footer{padding:28px 40px;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;margin-top:60px}
 .footer-left{font-size:11px;color:var(--faint)}
-.footer-left strong{color:var(--dim)}
 
-/* SYSTEM ANALYTICS CONTAINER */
+/* SESSION TELEMETRY MODULES */
 .analytics-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.7);backdrop-filter:blur(6px);z-index:500;align-items:flex-start;justify-content:center;padding:60px 20px;overflow-y:auto}
 .analytics-overlay.open{display:flex}
 .analytics-panel{background:var(--bg2);border:1px solid rgba(255,255,255,.1);border-radius:8px;width:100%;max-width:720px;overflow:hidden;animation:panelIn .2s ease-out}
@@ -180,23 +179,23 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
   <div class="topbar-right">
     <button class="analytics-btn" onclick="openAnalytics()">Analytics</button>
     <div class="topbar-date">
-      <span class="live-dot">Aggregation Layer Active</span>
+      <span class="live-dot">Aggregation Network Online</span>
       <strong id="live-date"></strong>
     </div>
   </div>
 </header>
 
 <section class="hero">
-  <p class="hero-eyebrow">Direct Multi-Source System Feed</p>
-  <h1 class="hero-headline">Find every opportunity, <em>real time.</em></h1>
-  <p class="hero-sub">Enter your target keywords to run strict multi-source edge engine parsing operations globally.</p>
+  <p class="hero-eyebrow">Multi-Source Dynamic Edge Aggregation</p>
+  <h1 class="hero-headline">Find every opportunity, <em>instantly.</em></h1>
+  <p class="hero-sub">Enter any professional profile title parameter below to evaluate unified global search streams synchronously.</p>
 </section>
 
 <section class="search-panel">
   <div class="search-box">
     <div class="search-input-row">
       <div class="search-icon">🔎</div>
-      <input id="search-input" class="search-main" type="text" placeholder="Search target title parameters... e.g. Engineer, Analyst, Accountant" autocomplete="off"/>
+      <input id="search-input" class="search-main" type="text" placeholder="Type structural title search keys... e.g., Developer, Analyst, Accountant" autocomplete="off"/>
       <div class="sdivider"></div>
       <select id="loc-select" class="loc-select">
         <option value="Nigeria">🇳🇬 Nigeria</option>
@@ -204,7 +203,7 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
         <option value="London, UK">🇬🇧 London</option>
         <option value="Global / Remote">🌍 Remote / Global</option>
       </select>
-      <button class="search-submit" onclick="triggerSearch()">Search</button>
+      <button class="search-submit" onclick="triggerSearch()">Execute Scan</button>
     </div>
 
     <div class="typing-bar" id="typing-bar">
@@ -212,8 +211,8 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
     </div>
 
     <div class="type-row">
-      <span class="type-label">Filter Type:</span>
-      <button class="type-btn active" data-type="Any" onclick="setType(this)"><div class="type-dot"></div>Any</button>
+      <span class="type-label">Role Target:</span>
+      <button class="type-btn active" data-type="Any" onclick="setType(this)"><div class="type-dot"></div>Any Type</button>
       <button class="type-btn" data-type="Full-time" onclick="setType(this)"><div class="type-dot"></div>Full-Time</button>
       <button class="type-btn" data-type="Part-time" onclick="setType(this)"><div class="type-dot"></div>Part-Time</button>
       <button class="type-btn" data-type="Hybrid" onclick="setType(this)"><div class="type-dot"></div>Hybrid</button>
@@ -222,22 +221,22 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 
     <div class="cats-scroll">
       <span class="cats-label">Sectors:</span>
-      <button class="cat-pill" data-query="Accountant" onclick="setCategory(this)">Finance</button>
-      <button class="cat-pill" data-query="Engineer" onclick="setCategory(this)">Engineering</button>
-      <button class="cat-pill" data-query="Analyst" onclick="setCategory(this)">Data Systems</button>
+      <button class="cat-pill" data-query="Accountant" onclick="setCategory(this)">Finance Systems</button>
+      <button class="cat-pill" data-query="Developer" onclick="setCategory(this)">Software Engineering</button>
+      <button class="cat-pill" data-query="Analyst" onclick="setCategory(this)">Data Science</button>
     </div>
   </div>
 </section>
 
 <div class="status-ticker" id="status-ticker">
   <div class="spin"></div>
-  <div id="s-text">Connecting aggregation cluster...</div>
+  <div id="s-text">Awaiting network command execution trees...</div>
 </div>
 
 <div class="results-header" id="results-header">
   <div>
-    <div class="res-count"><span id="res-num">0</span> items filtered</div>
-    <div class="res-meta">De-duplicated, normalized indexing engine matches</div>
+    <div class="res-count"><span id="res-num">0</span> items mapped</div>
+    <div class="res-meta">De-duplicated, programmatic multi-feed records located</div>
   </div>
   <div class="res-ts">
     <strong id="res-time">—</strong>
@@ -249,12 +248,12 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 
 <div class="empty-state" id="empty-state">
   <div class="empty-glyph">◈</div>
-  <div class="empty-title">Awaiting Search Input</div>
-  <p class="empty-body">Provide an active role title parameter above or click a structural category to fire backend scanner execution trees.</p>
+  <div class="empty-title">Pipeline Idle</div>
+  <p class="empty-body">Input your desired industry parameters above or toggle a quick selector tag to dispatch edge aggregation trees.</p>
 </div>
 
 <footer class="footer">
-  <div class="footer-left"><strong>JobPulse Engine</strong> — Clean Architecture multi-source provider implementation model.</div>
+  <div class="footer-left"><strong>JobPulse Framework</strong> — Decoupled server-side normalization and edge query delivery module.</div>
 </footer>
 
 </div>
@@ -263,8 +262,8 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
   <div class="analytics-panel" onclick="event.stopPropagation()">
     <div class="ap-head">
       <div>
-        <div class="ap-eyebrow">Local telemetry logs</div>
-        <div class="ap-title">Session Engine Metrics</div>
+        <div class="ap-eyebrow">Local runtime storage tracking</div>
+        <div class="ap-title">Session Metric Performance</div>
       </div>
       <button class="ap-close" onclick="closeAnalytics()">×</button>
     </div>
@@ -276,7 +275,7 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
         </div>
       </div>
       <div>
-        <div class="sec-label">Search Query Distribution</div>
+        <div class="sec-label">Search Context Distribution Matrix</div>
         <div class="rank-list" id="rank-list"></div>
       </div>
     </div>
@@ -285,10 +284,10 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 
 <script>
 /**
- * PRODUCTION EDGE CONFIGURATION
- * Swap this out with your primary live Cloudflare Workers deployment routing link.
+ * RE-ROUTING OVERRIDE CONFIGURATION
+ * Paste your active live Cloudflare Workers deployment routing path link destination string right here.
  */
-const WORKER_URL = "https:// job-proxy.elitesprince.workers.dev"; 
+const WORKER_URL = "https://job.yourdomain.workers.dev"; 
 
 let selectedType = "Any";
 document.getElementById("live-date").textContent = new Date().toLocaleDateString(undefined, {weekday:'short', day:'numeric', month:'short'});
@@ -313,14 +312,14 @@ async function triggerSearch() {
 
   if (!query) return;
 
-  // Commit request variables to analytics ledger
-  recordLocalMetric(query);
+  // Track operational metrics inside storage layer
+  commitLocalStorageMetric(query);
 
-  // Re-adjust UI configurations
+  // Structural visual updates
   document.getElementById("empty-state").style.display = "none";
   document.getElementById("status-ticker").classList.remove("err");
   document.getElementById("status-ticker").classList.add("visible");
-  document.getElementById("s-text").textContent = `Querying multi-source data pools for "${query}" inside ${location}...`;
+  document.getElementById("s-text").textContent = `Querying direct feeds for "${query}" within ${location}...`;
   document.getElementById("typing-bar").classList.add("active");
 
   try {
@@ -330,19 +329,19 @@ async function triggerSearch() {
       body: JSON.stringify({ query, location, type: selectedType })
     });
 
-    if (!res.ok) throw new Error(`HTTP System Fault Status: ${res.status}`);
-    const body = await res.json();
+    if (!res.ok) throw new Error(`Integration stream communication fault: ${res.status}`);
+    const data = await res.json();
     
-    renderDataMatrix(body.results || []);
+    renderJobMatrixPool(data.results || []);
   } catch (err) {
-    document.getElementById("s-text").textContent = "Core integration layer error: " + err.message;
+    document.getElementById("s-text").textContent = "Integration layer breakdown: " + err.message;
     document.getElementById("status-ticker").classList.add("err");
   } finally {
     document.getElementById("typing-bar").classList.remove("active");
   }
 }
 
-function renderDataMatrix(jobs) {
+function renderJobMatrixPool(jobs) {
   document.getElementById("status-ticker").classList.remove("visible");
   const grid = document.getElementById("jobs-grid");
   grid.innerHTML = "";
@@ -356,11 +355,10 @@ function renderDataMatrix(jobs) {
     return;
   }
 
-  const PLATFORM_COLOR_MAP = {
+  const BRAND_COLORS = {
     jsearch: "#0A66C2",
     adzuna: "#E06C75",
-    jooble: "#D4A853",
-    linkedin: "#003A9B"
+    jooble: "#D4A853"
   };
 
   jobs.forEach((job, index) => {
@@ -368,19 +366,19 @@ function renderDataMatrix(jobs) {
     tile.className = "job-card";
     tile.style.animationDelay = `${index * 30}ms`;
 
-    const platformKey = (job.platform || "").toLowerCase();
-    const badgeColor = PLATFORM_COLOR_MAP[platformKey] || "#2c313c";
-    const salaryElement = job.salary ? `<span class="tag salary">💰 ${esc(job.salary)}</span>` : "";
+    const providerKey = (job.platform || "").toLowerCase();
+    const runtimeBadgeColor = BRAND_COLORS[providerKey] || "#252932";
+    const localizedSalaryBadge = job.salary ? `<span class="tag salary">💰 ${esc(job.salary)}</span>` : "";
 
-    // BUILD STRUCTURAL REQS — Safe iteration of flat arrays verified by worker sanitizers
+    // BUILD STRUCTURAL REQS — Guaranteed primitive string array handling by backend sanitizers
     let requirementsHTML = "";
     if (Array.isArray(job.requirements)) {
-      requirementsHTML = job.requirements.map(text => `<li>${esc(text)}</li>`).join("");
+      requirementsHTML = job.requirements.map(strValue => `<li>${esc(strValue)}</li>`).join("");
     }
 
     tile.innerHTML = `
       <div class="card-row1">
-        <span class="platform-tag" style="background: ${badgeColor}">${esc(job.platform)}</span>
+        <span class="platform-tag" style="background: ${runtimeBadgeColor}">${esc(job.platform)}</span>
         <span class="posted-age">${esc(job.posted)}</span>
       </div>
       <div class="job-title">${esc(job.title)}</div>
@@ -388,10 +386,10 @@ function renderDataMatrix(jobs) {
       <div class="job-tags">
         <span class="tag">📍 ${esc(job.location)}</span>
         <span class="tag" style="color:var(--accent); border-color:rgba(88,196,140,0.15)">${esc(job.type)}</span>
-        ${salaryElement}
+        ${localizedSalaryBadge}
       </div>
       <div class="expand-toggle">
-        <span>Click Tile to Toggle Specifications</span>
+        <span>Click listing tile to toggle context specifications</span>
       </div>
       <div class="job-detail">
         <p class="job-summary">${esc(job.summary)}</p>
@@ -405,41 +403,42 @@ function renderDataMatrix(jobs) {
   });
 }
 
-function esc(val) {
-  return String(val || "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+function esc(value) {
+  return String(value || "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 }
 
-function recordLocalMetric(term) {
-  let store = JSON.parse(localStorage.getItem("jp_metrics") || "{}");
-  store[term] = (store[term] || 0) + 1;
-  localStorage.setItem("jp_metrics", JSON.stringify(store));
+function commitLocalStorageMetric(term) {
+  let repository = JSON.parse(localStorage.getItem("jp_local_telemetry") || "{}");
+  repository[term] = (repository[term] || 0) + 1;
+  localStorage.setItem("jp_local_telemetry", JSON.stringify(repository));
 }
 
 function openAnalytics() {
   document.getElementById("analytics-overlay").classList.add("open");
-  const store = JSON.parse(localStorage.getItem("jp_metrics") || "{}");
+  const repository = JSON.parse(localStorage.getItem("jp_local_telemetry") || "{}");
   
-  let dynamicSum = 0;
-  const list = document.getElementById("rank-list");
-  list.innerHTML = "";
+  let structuralTotalCount = 0;
+  const listEl = document.getElementById("rank-list");
+  listEl.innerHTML = "";
 
-  const ranks = Object.entries(store).sort((x, y) => y[1] - x[1]);
-  ranks.forEach(([term, count]) => {
-    dynamicSum += count;
-    list.innerHTML += `
+  const elementsSorted = Object.entries(repository).sort((a, b) => b[1] - a[1]);
+  elementsSorted.forEach(([keyword, quantity]) => {
+    structuralTotalCount += quantity;
+    listEl.innerHTML += `
       <div class="rank-item">
-        <span style="font-weight:500; color:var(--text);">${esc(term)}</span>
-        <span style="color:var(--accent); font-size:12px;">${count} hits</span>
+        <span style="font-weight:500; color:var(--text);">${esc(keyword)}</span>
+        <span style="color:var(--accent); font-size:12px;">${quantity} scans dispatched</span>
       </div>`;
   });
 
-  document.getElementById("kpi-searches").textContent = dynamicSum;
-  if (ranks.length === 0) {
-    list.innerHTML = "<p style='color:var(--faint); font-size:12px;'>No active searches recorded inside this local environment profile.</p>";
+  document.getElementById("kpi-searches").textContent = structuralTotalCount;
+  if (elementsSorted.length === 0) {
+    listEl.innerHTML = "<p style='color:var(--faint); font-size:12px;'>No historical searches tracked inside this local system configuration yet.</p>";
   }
 }
 
 function closeAnalytics() {
+  document.getElementById("analytics-overlay").classList.remove("remove");
   document.getElementById("analytics-overlay").classList.remove("open");
 }
 </script>
