@@ -398,7 +398,7 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 <script>
 /* ─── CONFIG ────────────────────────────────────────────────── */
 // After deploying your Cloudflare Worker, paste your Worker URL here:
-const WORKER_URL = "https://jobpulse-proxy.elitesprince.workers.dev";
+const WORKER_URL = "https://jobpulse-proxy.YOUR-SUBDOMAIN.workers.dev";
 
 /* ─── STATE ─────────────────────────────────────────────────── */
 let debounceTimer = null;
@@ -609,59 +609,31 @@ async function doSearch(query) {
   showStatus("Scanning for \""+query+"\""+(selectedType!=="Any"?" · "+selectedType:"")+" in "+loc+"…", false);
   hideEmpty(); hideResHeader(); clearGrid();
 
-  var system =
-    "You are a job search aggregator. Use web search to find job listings posted TODAY or in the last 48 hours.\n"+
-    "Return ONLY a valid JSON array — no markdown, no backticks, no explanation."+typeNote+"\n\n"+
-    "Each object must have:\n"+
-    "- title (string)\n- company (string)\n- location (string)\n"+
-    "- platform (string: e.g. LinkedIn, Indeed, Glassdoor, Jobberman, MyJobMag, HotNigerianJobs, JobBoardNG, Ngcareers)\n"+
-    "- posted (string: \"Today\", \"2h ago\", \"Yesterday\", etc.)\n"+
-    "- type (string: \"Full-time\", \"Part-time\", \"Hybrid\", \"Remote\", \"Contract\", etc.)\n"+
-    "- salary (string or null)\n"+
-    "- summary (string: 2-3 sentences)\n"+
-    "- requirements (array of 3-4 strings)\n"+
-    "- url (string or null)\n\n"+
-    "Return 10-16 results. Prefer freshly posted roles.";
-
-  var user =
-    "Search query: \""+fullQ+"\"\n"+
-    "Today: "+new Date().toISOString().split("T")[0]+"\n"+
-    "Find jobs posted in the last 24-48 hours across LinkedIn, Indeed, Glassdoor, Jobberman, MyJobMag, HotNigerianJobs, and other job boards."+typeNote+"\n"+
-    "Return JSON array only.";
-
   try {
     var res = await fetch(WORKER_URL, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        model: "claude-sonnet-4-6",
-        max_tokens: 4000,
-        system: system,
-        tools: [{ type: "web_search_20250305", name: "web_search" }],
-        messages: [{ role: "user", content: user }]
-      })
+      body: JSON.stringify({ query: query, location: loc, type: selectedType })
     });
 
     if (!res.ok) {
-      var err = {};
-      try { err = await res.json(); } catch(e) {}
-      // Anthropic returns { error: { type: "...", message: "..." } }
-      var msg = (err.error && err.error.message)
-        ? err.error.message
-        : (typeof err.error === "string" ? err.error : null)
-        || err.message
-        || ("Server error " + res.status + ". Check your Worker is deployed and API key is set.");
-      throw new Error(msg);
+      var errData = {};
+      try { errData = await res.json(); } catch(e) {}
+      throw new Error(errData.error || "Server error " + res.status);
     }
 
     var data = await res.json();
-    var raw = "";
-    (data.content||[]).forEach(function(b){ if(b.type==="text") raw += b.text; });
 
-    var clean = raw.replace(/```json|```/gi,"").trim();
-    var si = clean.indexOf("["), ei = clean.lastIndexOf("]");
-    if (si===-1||ei===-1) throw new Error("No job results returned. Try a different search term.");
-    var jobs = JSON.parse(clean.slice(si, ei+1));
+    if (data.error) throw new Error(data.error);
+
+    var jobs = data.jobs || [];
+    if (!jobs.length) {
+      var msg = data.message || "No jobs found for that search. Try different keywords.";
+      showStatus("⚠ " + msg, true);
+      showEmpty();
+      isSearching = false;
+      return;
+    }
 
     hideStatus();
     renderJobs(jobs, query, loc);
