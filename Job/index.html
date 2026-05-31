@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Job Portal — Live Job Intelligence</title>
+<title>FM 360 Live Job Update</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Syne:wght@400;600;700;800&family=Figtree:wght@300;400;500;600&display=swap" rel="stylesheet"/>
 <style>
@@ -51,7 +51,7 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .hero-eyebrow::before{content:'';display:inline-block;width:20px;height:1px;background:var(--accent)}
 .hero-headline{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(38px,5vw,64px);font-weight:700;line-height:1.0;letter-spacing:-.02em;margin-bottom:16px}
 .hero-headline em{font-style:italic;color:var(--accent)}
-.hero-sub{font-size:14px;color:var(--dim);max-width:500px;line-height:1.7}
+.hero-sub{font-size:14px;color:var(--dim);line-height:1.7}
 
 /* SEARCH PANEL */
 .search-panel{padding:0 40px;position:relative;z-index:10}
@@ -232,12 +232,6 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 
 <header class="topbar">
   <div class="topbar-left">
-    <a href="../" class="home-btn">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
-            <polyline points="9 22 9 12 15 12 15 22"/>
-          </svg>
-    </a>
     <div class="logo-mark">FM</div>
     <div class="logo-text">Job<span>Portal</span></div>
   </div>
@@ -320,10 +314,12 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
   <div class="spin" id="s-spin"></div>
   <div id="s-text">Scanning platforms…</div>
   <div class="plat-chips" id="s-chips">
-    <span class="plat-chip">LinkedIn</span>
-    <span class="plat-chip">Indeed</span>
-    <span class="plat-chip">Jobberman</span>
-    <span class="plat-chip">Glassdoor</span>
+    <span class="plat-chip">JSearch</span>
+    <span class="plat-chip">Remotive</span>
+    <span class="plat-chip">Jobicy</span>
+    <span class="plat-chip">The Muse</span>
+    <span class="plat-chip">Himalayas</span>
+    <span class="plat-chip">Arbeitnow</span>
   </div>
 </div>
 
@@ -347,11 +343,10 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 </div>
 
 <footer class="footer">
-  <div class="footer-left"><strong>Job Portal</strong> — FM 360 Live Job Update<br>Aggregates today's listings from 10+ platforms via web search</div>
+  <div class="footer-left"><strong>Job Portal</strong> — Multi-source live job intelligence<br>Aggregates listings from 6 platforms simultaneously · Results cached 30 min</div>
   <div class="footer-platforms">
-    <span class="fp">LinkedIn</span><span class="fp">Indeed</span><span class="fp">Jobberman</span>
-    <span class="fp">MyJobMag</span><span class="fp">Glassdoor</span><span class="fp">HotNigerianJobs</span>
-    <span class="fp">JobBoardNG</span><span class="fp">Ngcareers</span>
+    <span class="fp">JSearch</span><span class="fp">Remotive</span><span class="fp">Jobicy</span>
+    <span class="fp">The Muse</span><span class="fp">Himalayas</span><span class="fp">Arbeitnow</span>
   </div>
 </footer>
 
@@ -429,7 +424,7 @@ document.getElementById("live-date").textContent =
   new Date().toLocaleDateString("en-NG",{weekday:"short",day:"numeric",month:"short",year:"numeric"});
 
 /* ─── ANALYTICS / STATS ─────────────────────────────────────── */
-const SK = "FM_stats", VK = "FM_vid";
+const SK = "jp_stats", VK = "jp_vid";
 
 function loadStats() {
   try { return JSON.parse(localStorage.getItem(SK)) || blankStats(); }
@@ -633,6 +628,12 @@ async function doSearch(query) {
     if (data.error) throw new Error(data.error);
 
     var jobs = data.jobs || [];
+
+    // Show notice if JSearch key not configured
+    if (data.notice) {
+      showStatus("ℹ " + data.notice, false);
+    }
+
     if (!jobs.length) {
       var msg = data.message || "No jobs found for that search. Try different keywords.";
       showStatus("⚠ " + msg, true);
@@ -642,7 +643,7 @@ async function doSearch(query) {
     }
 
     hideStatus();
-    renderJobs(jobs, query, loc);
+    renderJobs(jobs, query, loc, data.cached);
   } catch(err) {
     showStatus("⚠ "+err.message, true);
     showEmpty();
@@ -652,12 +653,19 @@ async function doSearch(query) {
 }
 
 /* ─── RENDER JOBS ───────────────────────────────────────────── */
-function renderJobs(jobs, query, loc) {
+function renderJobs(jobs, query, loc, fromCache) {
   if (!jobs.length) { showEmpty(); return; }
 
-  var tl = selectedType!=="Any" ? " · "+selectedType.toUpperCase() : "";
+  var platforms = {};
+  jobs.forEach(function(j){ platforms[j.platform||"Other"] = 1; });
+  var srcCount = Object.keys(platforms).length;
+
+  var tl      = selectedType!=="Any" ? " · "+selectedType.toUpperCase() : "";
+  var cachedLbl = fromCache ? " · ⚡ CACHED" : "";
   document.getElementById("res-num").textContent = jobs.length;
-  document.getElementById("res-meta").textContent = query.toUpperCase()+" · "+loc.toUpperCase()+tl;
+  document.getElementById("res-meta").textContent =
+    query.toUpperCase()+" · "+loc.toUpperCase()+tl+
+    " · "+srcCount+" SOURCE"+(srcCount!==1?"S":"")+cachedLbl;
   document.getElementById("res-time").textContent =
     new Date().toLocaleTimeString("en-NG",{hour:"2-digit",minute:"2-digit"});
   document.getElementById("results-header").classList.add("visible");
