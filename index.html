@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Felix Happy Michael — ACA, FMVA | Finance Leader & FinTech Builder</title>
+<meta name="description" content="Felix Happy Michael — Chartered Accountant, Financial Strategist, FinTech Builder. Lagos, Nigeria.">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%2300c9a7'/><text x='50%25' y='50%25' dominant-baseline='central' text-anchor='middle' font-family='Arial' font-weight='700' font-size='12' fill='%230a1628'>FM</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Syne:wght@500;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --n:#050d1a;--n2:#0a1628;--n3:#0f1f3d;--n4:#162747;
+  --t:#00c9a7;--t2:#00a98e;--am:#f5a623;--rd:#e05252;--gr:#22c55e;--bl:#63b3ed;
+  --tx:#e8edf5;--tx2:#8fa3bf;--tx3:#4a6080;
+  --b:rgba(255,255,255,.06);--b2:rgba(255,255,255,.11);
+  --mo:'IBM Plex Mono',monospace;--sa:'DM Sans',sans-serif;--di:'Syne',sans-serif;
+}
+html{font-size:15px;scroll-behavior:smooth}
+body{font-family:var(--sa);background:var(--n);color:var(--tx);line-height:1.6;overflow-x:hidden}
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;height:62px;display:flex;align-items:center;justify-content:space-between;padding:0 2.5rem;background:rgba(5,13,26,.88);backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.06);transition:all .3s}
+.nav-brand{display:flex;align-items:center;gap:11px;text-decoration:none}
+.nav-mark{width:34px;height:34px;background:var(--t);border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:var(--di);font-size:11px;font-weight:700;color:var(--n)}
+.nav-name{font-family:var(--di);font-size:15px;font-weight:700;letter-spacing:-.03em;color:var(--tx)}
+.nav-name span{color:var(--t)}
+.nav-links{display:flex;align-items:center;gap:1.75rem}
+.nav-links a{font-size:12px;color:var(--tx3);text-decoration:none;font-family:var(--mo);letter-spacing:.03em;transition:color .2s}
+.nav-links a:hover{color:var(--t)}
+.btn-nav{padding:8px 18px;border-radius:8px;font-size:13px;font-family:var(--di);font-weight:600;text-decoration:none;transition:all .2s;background:var(--t);color:var(--n)}
+.btn-nav:hover{background:var(--t2);transform:translateY(-1px)}
+@media(max-width:768px){.nav-links{display:none}nav{padding:0 1.25rem}}
+/* HERO */
+#hero{min-height:100vh;display:flex;align-items:center;padding:7rem 2.5rem 4rem;position:relative;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% -10%,rgba(0,201,167,.07) 0%,transparent 65%),radial-gradient(ellipse 50% 50% at 90% 60%,rgba(99,179,237,.04) 0%,transparent 60%),radial-gradient(ellipse 40% 40% at 10% 80%,rgba(245,166,35,.03) 0%,transparent 60%);pointer-events:none}
+.hero-grid{position:absolute;inset:0;background-image:repeating-linear-gradient(0deg,transparent,transparent 59px,rgba(255,255,255,.014) 59px,rgba(255,255,255,.014) 60px),repeating-linear-gradient(90deg,transparent,transparent 59px,rgba(255,255,255,.014) 59px,rgba(255,255,255,.014) 60px);pointer-events:none}
+.hero-inner{max-width:1100px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr 400px;gap:4rem;align-items:center}
+@media(max-width:900px){.hero-inner{grid-template-columns:1fr}.hero-right{display:none}}
+.hero-left{position:relative;z-index:1}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(0,201,167,.08);border:1px solid rgba(0,201,167,.18);border-radius:20px;padding:6px 16px;font-family:var(--mo);font-size:11px;color:var(--t);margin-bottom:1.75rem;animation:fadeUp .6s ease both}
+.hero-badge-dot{width:6px;height:6px;border-radius:50%;background:var(--t);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+/* HERO NAME — single line, stylish */
+.hero-name{font-family:var(--di);font-size:clamp(2rem,4.2vw,3.2rem);font-weight:800;letter-spacing:-.05em;line-height:1.08;margin-bottom:1.1rem;animation:fadeUp .6s .1s ease both;white-space:nowrap}
+.hero-name .first{color:var(--tx)}
+.hero-name .middle{color:var(--t)}
+.hero-name .last{color:var(--tx);font-style:italic}
+.hero-name .sep{color:var(--tx3);font-weight:400;margin:0 .18em;font-size:.75em;vertical-align:middle}
+.hero-sub{font-size:15px;color:var(--tx2);max-width:520px;line-height:1.7;margin-bottom:2.25rem;animation:fadeUp .6s .2s ease both}
+.hero-actions{display:flex;gap:.85rem;flex-wrap:wrap;animation:fadeUp .6s .3s ease both}
+.btn-hero{padding:12px 26px;border-radius:10px;font-family:var(--di);font-size:14px;font-weight:600;text-decoration:none;transition:all .25s;display:inline-flex;align-items:center;gap:8px;letter-spacing:-.01em}
+.btn-hero.primary{background:var(--t);color:var(--n)}
+.btn-hero.primary:hover{background:var(--t2);transform:translateY(-2px);box-shadow:0 8px 28px rgba(0,201,167,.3)}
+.btn-hero.ghost{background:transparent;border:1px solid var(--b2);color:var(--tx2)}
+.btn-hero.ghost:hover{background:rgba(255,255,255,.06);color:var(--tx);transform:translateY(-2px)}
+.hero-stats{display:flex;gap:2.25rem;margin-top:2.75rem;animation:fadeUp .6s .4s ease both}
+.stat-num{font-family:var(--di);font-size:26px;font-weight:700;letter-spacing:-.04em;color:var(--t)}
+.stat-label{font-size:11px;color:var(--tx3);font-family:var(--mo);margin-top:2px}
+/* profile card */
+.hero-right{position:relative;z-index:1;animation:fadeUp .7s .2s ease both}
+.profile-card{background:linear-gradient(135deg,var(--n3) 0%,var(--n4) 100%);border:1px solid var(--b2);border-radius:20px;padding:1.75rem;position:relative;overflow:hidden}
+.profile-card::before{content:'';position:absolute;top:-40px;right:-40px;width:150px;height:150px;border-radius:50%;background:rgba(0,201,167,.06)}
+.profile-avatar{width:64px;height:64px;background:linear-gradient(135deg,var(--t) 0%,var(--t2) 100%);border-radius:14px;display:flex;align-items:center;justify-content:center;font-family:var(--di);font-size:22px;font-weight:800;color:var(--n);margin-bottom:1.1rem;position:relative;z-index:1}
+.profile-name{font-family:var(--di);font-size:18px;font-weight:700;letter-spacing:-.03em;margin-bottom:3px;position:relative;z-index:1}
+.profile-role{font-size:12px;color:var(--t);font-family:var(--mo);margin-bottom:1.25rem;position:relative;z-index:1}
+.profile-tags{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1.25rem;position:relative;z-index:1}
+.tag{padding:3px 9px;border-radius:6px;font-size:10px;font-family:var(--mo);font-weight:500}
+.tag.teal{background:rgba(0,201,167,.1);color:var(--t);border:1px solid rgba(0,201,167,.2)}
+.tag.amber{background:rgba(245,166,35,.1);color:var(--am);border:1px solid rgba(245,166,35,.2)}
+.tag.blue{background:rgba(99,179,237,.1);color:var(--bl);border:1px solid rgba(99,179,237,.2)}
+.profile-loc{display:flex;align-items:center;gap:7px;font-size:11px;color:var(--tx3);font-family:var(--mo);position:relative;z-index:1}
+/* SECTIONS */
+section{padding:4.5rem 2.5rem}
+.section-inner{max-width:1100px;margin:0 auto}
+.section-label{font-family:var(--mo);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--t);margin-bottom:.6rem}
+.section-title{font-family:var(--di);font-size:clamp(1.7rem,3vw,2.4rem);font-weight:700;letter-spacing:-.04em;margin-bottom:.85rem;line-height:1.1}
+/* ABOUT */
+#about{background:var(--n2)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:2.75rem;align-items:start}
+@media(max-width:768px){.about-grid{grid-template-columns:1fr}}
+.about-text p{font-size:13.5px;color:var(--tx2);line-height:1.8;margin-bottom:.9rem}
+.about-text p strong{color:var(--tx)}
+.skills-grid{display:grid;grid-template-columns:1fr 1fr;gap:.6rem}
+.skill-item{background:var(--n3);border:1px solid var(--b);border-radius:7px;padding:9px 13px;font-size:11.5px;font-family:var(--mo);color:var(--tx2);display:flex;align-items:center;gap:7px}
+.skill-dot{width:5px;height:5px;border-radius:50%;background:var(--t);flex-shrink:0}
+/* EXPERIENCE */
+.timeline{position:relative;padding-left:1.75rem}
+.timeline::before{content:'';position:absolute;left:0;top:8px;bottom:0;width:1px;background:linear-gradient(to bottom,var(--t),transparent)}
+.tl-item{position:relative;margin-bottom:2.25rem}
+.tl-item::before{content:'';position:absolute;left:-1.75rem;top:6px;width:9px;height:9px;border-radius:50%;background:var(--t);border:2px solid var(--n);box-shadow:0 0 0 3px rgba(0,201,167,.18)}
+.tl-header{display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:.4rem;margin-bottom:.4rem}
+.tl-company{font-family:var(--di);font-size:15px;font-weight:700;letter-spacing:-.02em}
+.tl-period{font-size:10px;font-family:var(--mo);color:var(--t);background:rgba(0,201,167,.08);border:1px solid rgba(0,201,167,.15);padding:3px 9px;border-radius:20px;white-space:nowrap}
+.tl-role{font-size:12px;color:var(--tx2);font-family:var(--mo);margin-bottom:.65rem}
+.tl-points{list-style:none;display:flex;flex-direction:column;gap:4px}
+.tl-points li{font-size:12.5px;color:var(--tx3);padding-left:1.1rem;position:relative;line-height:1.6}
+.tl-points li::before{content:'→';position:absolute;left:0;color:var(--t);font-size:10px;top:2px}
+/* CERTS */
+#certifications{background:var(--n2)}
+.certs-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:.9rem}
+.cert-card{background:var(--n3);border:1px solid var(--b);border-radius:11px;padding:1.1rem;transition:all .2s}
+.cert-card:hover{border-color:rgba(0,201,167,.3);background:rgba(0,201,167,.04);transform:translateY(-2px)}
+.cert-abbr{font-family:var(--di);font-size:16px;font-weight:700;color:var(--t);margin-bottom:3px}
+.cert-name{font-size:11.5px;color:var(--tx2);line-height:1.4;margin-bottom:5px}
+.cert-body{font-size:10.5px;font-family:var(--mo);color:var(--tx3)}
+/* COURSES */
+#courses{background:var(--n)}
+.courses-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:.9rem}
+.course-card{background:var(--n3);border:1px solid var(--b);border-radius:11px;padding:1.1rem 1.25rem;transition:all .2s;display:flex;align-items:flex-start;gap:12px}
+.course-card:hover{border-color:rgba(245,166,35,.25);transform:translateY(-2px)}
+.course-icon{width:36px;height:36px;border-radius:8px;background:rgba(245,166,35,.1);border:1px solid rgba(245,166,35,.2);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
+.course-title{font-size:12.5px;font-weight:600;color:var(--tx);line-height:1.35;margin-bottom:3px}
+.course-body{font-size:11px;font-family:var(--mo);color:var(--tx3)}
+/* TOOLS */
+.tools-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:.65rem}
+.tool-pill{background:var(--n3);border:1px solid var(--b);border-radius:7px;padding:10px 14px;font-size:11.5px;font-family:var(--mo);color:var(--tx2);text-align:center;transition:all .2s}
+.tool-pill:hover{border-color:rgba(0,201,167,.3);color:var(--t)}
+/* PORTFOLIO CTA */
+#portfolio{background:linear-gradient(135deg,var(--n3) 0%,rgba(0,201,167,.05) 50%,var(--n3) 100%);border-top:1px solid var(--b);border-bottom:1px solid var(--b)}
+.portfolio-inner{text-align:center;max-width:660px;margin:0 auto}
+.portfolio-sub{font-size:13.5px;color:var(--tx2);line-height:1.7;margin-bottom:2rem}
+.apps-preview{display:flex;justify-content:center;gap:.85rem;margin-bottom:2rem;flex-wrap:wrap}
+.app-chip{display:flex;align-items:center;gap:7px;background:var(--n4);border:1px solid var(--b2);border-radius:9px;padding:9px 16px;font-size:12.5px;color:var(--tx2);transition:all .2s}
+.app-chip:hover{border-color:var(--t);color:var(--t)}
+/* CONTACT */
+#contact{background:var(--n2)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:2.75rem;align-items:start}
+@media(max-width:768px){.contact-grid{grid-template-columns:1fr}}
+.contact-info{display:flex;flex-direction:column;gap:1rem}
+.contact-item{display:flex;align-items:center;gap:13px;padding:.9rem 1.1rem;background:var(--n3);border:1px solid var(--b);border-radius:9px;transition:all .2s}
+.contact-item:hover{border-color:rgba(0,201,167,.3)}
+.contact-icon{width:36px;height:36px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0}
+.contact-label{font-size:10px;font-family:var(--mo);color:var(--tx3);text-transform:uppercase;letter-spacing:.06em;margin-bottom:2px}
+.contact-value{font-size:12.5px;color:var(--tx)}
+.contact-links{display:flex;flex-direction:column;gap:.7rem}
+.contact-link{display:flex;align-items:center;gap:9px;padding:11px 14px;background:var(--n3);border:1px solid var(--b);border-radius:9px;text-decoration:none;color:var(--tx2);font-size:12.5px;transition:all .2s}
+.contact-link:hover{border-color:var(--t);color:var(--t);transform:translateX(4px)}
+/* FOOTER */
+footer{padding:1.75rem 2.5rem;border-top:1px solid var(--b);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.75rem}
+.footer-copy{font-size:11px;color:var(--tx3);font-family:var(--mo)}
+.footer-copy span{color:var(--t)}
+.footer-links{display:flex;gap:1.25rem}
+.footer-links a{font-size:11px;font-family:var(--mo);color:var(--tx3);text-decoration:none;transition:color .2s}
+.footer-links a:hover{color:var(--t)}
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease}
+.reveal.visible{opacity:1;transform:none}
+</style>
+</head>
+<body>
+<nav id="nav">
+  <a class="nav-brand" href="#">
+    <div class="nav-mark">FM</div>
+    <div class="nav-name">Felix <span>Michael</span></div>
+  </a>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#experience">Experience</a>
+    <a href="#certifications">Credentials</a>
+    <a href="#courses">Courses</a>
+    <a href="#portfolio">Portfolio</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <a href="portal/" class="btn-nav">Access Resources →</a>
+</nav>
+
+<section id="hero">
+  <div class="hero-bg"></div><div class="hero-grid"></div>
+  <div class="hero-inner">
+    <div class="hero-left">
+      <div class="hero-badge"><span class="hero-badge-dot"></span>Finance Leader · FinTech Builder</div>
+      <h1 class="hero-name">
+        <span class="first">Felix</span><span class="sep">·</span><span class="middle">Happy</span><span class="sep">·</span><span class="last">Michael</span>
+      </h1>
+      <p class="hero-sub">Chartered Accountant · Financial Strategist · FinTech Builder.<br>Driving financial excellence, regulatory compliance and digital transformation across complex organisations in Nigeria.</p>
+      <div class="hero-actions">
+        <a href="portal/" class="btn-hero primary">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+          Access Resources
+        </a>
+        <a href="#contact" class="btn-hero ghost">Get in Touch</a>
+      </div>
+      <div class="hero-stats">
+        <div><div class="stat-num">12+</div><div class="stat-label">Years Experience</div></div>
+        <div><div class="stat-num">8</div><div class="stat-label">Certifications</div></div>
+        <div><div class="stat-num">₦600M+</div><div class="stat-label">Tax Savings Led</div></div>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="profile-card">
+        <div class="profile-avatar">FM</div>
+        <div class="profile-name">Felix Happy Michael</div>
+        <div class="profile-role">Head, Finance &amp; Admin · ACA · FMVA®</div>
+        <div class="profile-tags">
+          <span class="tag teal">ACA</span><span class="tag teal">ACTI</span>
+          <span class="tag amber">FMVA®</span><span class="tag amber">BIDA™</span>
+          <span class="tag blue">CBCA™</span><span class="tag blue">CMSA®</span>
+          <span class="tag teal">CFO — FRC</span><span class="tag amber">MBA Finance</span>
+        </div>
+        <div class="profile-loc">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Lagos, Nigeria
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="section-inner">
+    <div class="section-label">About</div>
+    <div class="section-title">Financial Excellence Meets Digital Innovation</div>
+    <div class="about-grid reveal">
+      <div class="about-text">
+        <p>A <strong>proven accounting professional</strong> with a track record of driving financial excellence and ensuring regulatory compliance, offering expertise in financial reporting, tax management, and strategic financial planning to support company growth.</p>
+        <p>Currently serving as <strong>Head of Finance and Admin</strong> at Factoring &amp; Supply Chain Finance Ltd (a subsidiary of Pan-African Holdings), where I led a successful CBN examination exercise, maintained 100% regulatory compliance, and achieved a <strong>21.2% YOY increase</strong> in treasury operations.</p>
+        <p>Beyond traditional finance, I build <strong>bespoke financial tools and web applications</strong> — reconciliation engines, ECL models, receivables trackers, and reporting systems — leveraging deep domain knowledge to solve real business problems with technology.</p>
+      </div>
+      <div>
+        <p style="font-size:11px;font-family:var(--mo);color:var(--tx3);letter-spacing:.08em;text-transform:uppercase;margin-bottom:.9rem">Core Competencies</p>
+        <div class="skills-grid">
+          <div class="skill-item"><span class="skill-dot"></span>Financial Reporting</div>
+          <div class="skill-item"><span class="skill-dot"></span>Treasury Management</div>
+          <div class="skill-item"><span class="skill-dot"></span>IFRS Compliance</div>
+          <div class="skill-item"><span class="skill-dot"></span>Tax Management</div>
+          <div class="skill-item"><span class="skill-dot"></span>Financial Modelling</div>
+          <div class="skill-item"><span class="skill-dot"></span>Data Analysis</div>
+          <div class="skill-item"><span class="skill-dot"></span>Budgeting &amp; Forecasting</div>
+          <div class="skill-item"><span class="skill-dot"></span>Internal Controls</div>
+          <div class="skill-item"><span class="skill-dot"></span>Audit Coordination</div>
+          <div class="skill-item"><span class="skill-dot"></span>Investment Appraisal</div>
+          <div class="skill-item"><span class="skill-dot"></span>Stakeholder Reporting</div>
+          <div class="skill-item"><span class="skill-dot"></span>FinTech Development</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="section-inner">
+    <div class="section-label">Experience</div>
+    <div class="section-title">Career Journey</div>
+    <div class="timeline reveal">
+      <div class="tl-item">
+        <div class="tl-header"><div><div class="tl-company">Factoring &amp; Supply Chain Finance Ltd</div><div class="tl-role">Head, Finance and Admin &nbsp;·&nbsp; Pan-African Holdings Subsidiary</div></div><span class="tl-period">Sep 2024 – Present</span></div>
+        <ul class="tl-points">
+          <li>Led a successful CBN examination exercise covering two accounting years within the first month.</li>
+          <li>Maintained 100% compliance across CBN returns, cybersecurity filings, and audited financial statement requirements.</li>
+          <li>Delivered Management Accounts within 3 days and CBN Returns within 5 days of month-end.</li>
+          <li>Achieved 21.2% YOY increase on treasury operations through dynamic ALM financial models.</li>
+          <li>Led digital transformation — deployed bespoke Core Banking System integrated with NIBSS and Remita.</li>
+          <li>Developed Corporate Governance Policies: Treasury Policy, Finance Policy, Capital Management Plan.</li>
+        </ul>
+      </div>
+      <div class="tl-item">
+        <div class="tl-header"><div><div class="tl-company">Catamaran Group Nigeria Limited</div><div class="tl-role">Group Finance Manager</div></div><span class="tl-period">Apr 2024 – Sep 2024</span></div>
+        <ul class="tl-points">
+          <li>Negotiated tax liabilities following a 5-year audit across two subsidiaries, saving over ₦600M.</li>
+          <li>Implemented financial strategies, policies, and controls across subsidiaries.</li>
+          <li>Led budgeting and delivered timely financial reports for management decision-making.</li>
+        </ul>
+      </div>
+      <div class="tl-item">
+        <div class="tl-header"><div><div class="tl-company">Max International Nigeria</div><div class="tl-role">Performance Reporting Manager · Lagos</div></div><span class="tl-period">Sep 2021 – Mar 2024</span></div>
+        <ul class="tl-points">
+          <li>Improved regulatory compliance from 85% to 98% year-on-year.</li>
+          <li>Delivered 20% increase in profitability through financial analysis and strategic insights.</li>
+          <li>Developed Excel templates reducing reporting time by 95%; led accounts team of 10 across 3 regions.</li>
+        </ul>
+      </div>
+      <div class="tl-item">
+        <div class="tl-header"><div><div class="tl-company">Adewale Semiu &amp; Co Chartered Accountants</div><div class="tl-role">Audit Associate</div></div><span class="tl-period">Jan 2016 – May 2020</span></div>
+        <ul class="tl-points">
+          <li>Executed audit engagements, tax management, and IFRS-compliant financial statements.</li>
+          <li>Built financial models, Excel/VBA applications and installed accounting software for clients.</li>
+        </ul>
+      </div>
+      <div class="tl-item">
+        <div class="tl-header"><div><div class="tl-company">NNPC/DPR RSA — Lagos Branch</div><div class="tl-role">Account Officer</div></div><span class="tl-period">Feb 2013 – Dec 2015</span></div>
+        <ul class="tl-points">
+          <li>General accounting, payroll, fixed asset registers, depreciation and financial forecasts.</li>
+          <li>Maintained confidentiality of sensitive financial documents and records.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="certifications">
+  <div class="section-inner">
+    <div class="section-label">Credentials</div>
+    <div class="section-title">Certifications &amp; Education</div>
+    <div class="certs-grid reveal">
+      <div class="cert-card"><div class="cert-abbr">ACA</div><div class="cert-name">Associate Chartered Accountant</div><div class="cert-body">ICAN — Nigeria</div></div>
+      <div class="cert-card"><div class="cert-abbr">ACTI</div><div class="cert-name">Associate Chartered Tax Institute</div><div class="cert-body">CITN — Nigeria</div></div>
+      <div class="cert-card"><div class="cert-abbr">FMVA®</div><div class="cert-name">Financial Modelling &amp; Valuation Analyst</div><div class="cert-body">CFI — Canada</div></div>
+      <div class="cert-card"><div class="cert-abbr">BIDA™</div><div class="cert-name">Business Intelligence &amp; Data Analyst</div><div class="cert-body">CFI — Canada</div></div>
+      <div class="cert-card"><div class="cert-abbr">CBCA™</div><div class="cert-name">Commercial Banking &amp; Credit Analyst</div><div class="cert-body">CFI — Canada</div></div>
+      <div class="cert-card"><div class="cert-abbr">CMSA®</div><div class="cert-name">Capital Markets &amp; Securities Analyst</div><div class="cert-body">CFI — Canada</div></div>
+      <div class="cert-card"><div class="cert-abbr">FPWMP®</div><div class="cert-name">Financial Planning &amp; Wealth Management</div><div class="cert-body">CFI — Canada</div></div>
+      <div class="cert-card"><div class="cert-abbr">CFO</div><div class="cert-name">Chief Financial Officer Certification</div><div class="cert-body">FRC — Nigeria</div></div>
+    </div>
+    <div style="margin-top:2rem" class="reveal">
+      <p style="font-size:11px;font-family:var(--mo);color:var(--tx3);letter-spacing:.08em;text-transform:uppercase;margin-bottom:.85rem">Education</p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:.65rem">
+        <div class="skill-item" style="flex-direction:column;align-items:flex-start;gap:2px;padding:12px"><span style="color:var(--tx);font-size:13px;font-family:var(--di);font-weight:600">MBA in Finance</span><span style="font-size:11px">University of Lagos · 2024</span></div>
+        <div class="skill-item" style="flex-direction:column;align-items:flex-start;gap:2px;padding:12px"><span style="color:var(--tx);font-size:13px;font-family:var(--di);font-weight:600">BSc Accounting (In View)</span><span style="font-size:11px">Southwestern University, Nigeria</span></div>
+        <div class="skill-item" style="flex-direction:column;align-items:flex-start;gap:2px;padding:12px"><span style="color:var(--tx);font-size:13px;font-family:var(--di);font-weight:600">HND Accounting</span><span style="font-size:11px">Lagos State Polytechnic · 2015</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="courses">
+  <div class="section-inner">
+    <div class="section-label">Training</div>
+    <div class="section-title">Selected Courses &amp; Programmes</div>
+    <div class="courses-grid reveal">
+      <div class="course-card"><div class="course-icon">📊</div><div><div class="course-title">Advanced Financial Instrument &amp; ECL Modeling Workshop</div><div class="course-body">GODP Consulting</div></div></div>
+      <div class="course-card"><div class="course-icon">📋</div><div><div class="course-title">Advanced Diploma in Taxation &amp; Fiscal Policy</div><div class="course-body">OGE Business School with ATPL</div></div></div>
+      <div class="course-card"><div class="course-icon">🔍</div><div><div class="course-title">Advanced Diploma in Forensic Accounting &amp; Fraud Investigation</div><div class="course-body">OGE Business School with AFAR</div></div></div>
+      <div class="course-card"><div class="course-icon">🌐</div><div><div class="course-title">International Financial Reporting Standard (IFRS) Masterclass</div><div class="course-body">GODP Consulting</div></div></div>
+      <div class="course-card"><div class="course-icon">🛡️</div><div><div class="course-title">IT Masters Short-Course in Cyber Defence Strategies</div><div class="course-body">Charles Sturt University, Australia</div></div></div>
+      <div class="course-card"><div class="course-icon">📈</div><div><div class="course-title">Google Data Analytics Professional Certificate</div><div class="course-body">Google Incorporation</div></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="tools" style="background:var(--n2)">
+  <div class="section-inner">
+    <div class="section-label">Tech Stack</div>
+    <div class="section-title">Tools &amp; Platforms</div>
+    <div class="tools-grid reveal">
+      <div class="tool-pill">Microsoft Excel</div><div class="tool-pill">PowerPoint</div>
+      <div class="tool-pill">Sage Accounting</div><div class="tool-pill">QuickBooks</div>
+      <div class="tool-pill">MS Dynamics ERP</div><div class="tool-pill">Oracle NetSuite</div>
+      <div class="tool-pill">Gemini Core-Banking</div><div class="tool-pill">BankOne</div>
+      <div class="tool-pill">NIBSS Integration</div><div class="tool-pill">Remita</div>
+      <div class="tool-pill">VBA / Macros</div><div class="tool-pill">JavaScript</div>
+      <div class="tool-pill">Node.js</div><div class="tool-pill">MongoDB</div>
+      <div class="tool-pill">Power BI</div><div class="tool-pill">Google Analytics</div>
+    </div>
+  </div>
+</section>
+
+<section id="portfolio">
+  <div class="section-inner">
+    <div class="portfolio-inner">
+      <div class="section-label">Portfolio</div>
+      <div class="section-title">Financial Tools &amp; Applications</div>
+      <p class="portfolio-sub">Production-grade financial applications built from deep domain expertise. Sign in to access the full suite.</p>
+      <div class="apps-preview">
+        <div class="app-chip"><span>🏦</span> Bank Reconciliation Engine</div>
+        <div class="app-chip"><span>📊</span> IFRS 9 ECL Model</div>
+        <div class="app-chip"><span>🧾</span> Receivables Tracker</div>
+      </div>
+      <a href="portal/" class="btn-hero primary" style="display:inline-flex">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        Sign In to Access Tools
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="section-inner">
+    <div class="section-label">Contact</div>
+    <div class="contact-grid reveal">
+      <div>
+        <div class="section-title" style="margin-bottom:.85rem">Let's Connect</div>
+        <div class="contact-info">
+          <div class="contact-item"><div class="contact-icon" style="background:rgba(0,201,167,.1)">📍</div><div><div class="contact-label">Location</div><div class="contact-value">Lagos, Nigeria</div></div></div>
+          <div class="contact-item"><div class="contact-icon" style="background:rgba(99,179,237,.1)">📞</div><div><div class="contact-label">Phone</div><div class="contact-value">+234 806 327 2819</div></div></div>
+          <div class="contact-item"><div class="contact-icon" style="background:rgba(245,166,35,.1)">✉️</div><div><div class="contact-label">Email</div><div class="contact-value">felixh.michael@gmail.com</div></div></div>
+        </div>
+      </div>
+      <div>
+        <div class="section-title" style="font-size:1.3rem;margin-bottom:.75rem">Open to Opportunities</div>
+        <p style="font-size:13px;color:var(--tx2);line-height:1.7;margin-bottom:1.25rem">Available for strategic CFO engagements, financial consulting, and collaboration on fintech projects.</p>
+        <div class="contact-links">
+          <a href="mailto:felixh.michael@gmail.com" class="contact-link"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>felixh.michael@gmail.com<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-left:auto"><path d="m9 18 6-6-6-6"/></svg></a>
+          <a href="tel:+2348063272819" class="contact-link"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.08 6.08l.92-.92a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>+234 806 327 2819<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-left:auto"><path d="m9 18 6-6-6-6"/></svg></a>
+          <a href="portal/" class="contact-link" style="border-color:rgba(0,201,167,.3);color:var(--t)"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>Access Resource Portal<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-left:auto"><path d="m9 18 6-6-6-6"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-copy">&copy; <span id="yr"></span> <span>Felix Happy Michael</span> · All rights reserved</div>
+  <div class="footer-links"><a href="#hero">Home</a><a href="#about">About</a><a href="#experience">Experience</a><a href="portal/">Portal</a></div>
+</footer>
+
+<script>
+document.getElementById('yr').textContent=new Date().getFullYear();
+var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting)e.target.classList.add('visible');});},{threshold:.1});
+document.querySelectorAll('.reveal').forEach(function(el){obs.observe(el);});
+window.addEventListener('scroll',function(){
+  var nav=document.getElementById('nav');
+  nav.style.background=window.scrollY>50?'rgba(5,13,26,.97)':'rgba(5,13,26,.88)';
+  nav.style.boxShadow=window.scrollY>50?'0 4px 24px rgba(0,0,0,.4)':'none';
+});
+</script>
+</body>
+</html>
